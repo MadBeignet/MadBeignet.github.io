@@ -7,7 +7,7 @@
         <script src = 'https://unpkg.com/babel-standalone@6/babel.min.js'></script>
         <link rel="stylesheet" href="index.css">
     </head>
-    <body>
+    <body style="background-color: rgb(32, 32, 62);">
         <div id = 'app'></div>
 
         <script type= 'text/babel'>
@@ -23,11 +23,55 @@
             //     props.name
             // )    
             }
-            
+            function GoalComponent(props) {
+                return (
+                    <div className="big-idea" >
+                <h1>Project Goals</h1>
+                <p>The team will be looking at the relationship between political participation and political resistance in the United States from 2000-2021 by state.</p> 
+                <p>To measure political participation, the team will use voter turnout statistics by state from collected by the Election Project. The election project website derives all its data from individual state websites.</p>
+                <p>This project will distinguish between violent and nonviolent political resistance. To measure nonviolent political resistance, this group will use protest frequency and size from Count Love, a group from MIT that began tracking protests amidst the 2017 Women's March. To study violent political resistance, this project will use Profiles of Individual Radicalization in the US (PIRUS) from University of Maryland National Consortium for the Study of Terrorism and Responses to Terrorism (START).</p>
+
+                <li><a href="https://www.electproject.org/home">Election Project</a></li>                    
+
+                <li><a href="https://countlove.org/faq.html">Count Love</a></li>
+
+                <li><a href="https://www.start.umd.edu/data-tools/profiles-individual-radicalization-united-states-pirus">PIRUS</a></li>
+
+                </div>);
+            }
+
+            function CleaningComponent(props) {
+                return (
+                    <div className="big-idea" id="small-idea">
+                        <h1 >Voter Turnout 2002</h1>
+                        <h2>Cleaning the Data</h2><p>The Election Project collects voter turnout data for the general election that occur every two comes in separate CSVs by year. Here we want to read all by-year files into a single DataFrame. To do so, we must account for the following:</p> 
+                        <div>
+                        1.   Years 2000-2010 are in a uniform format, but missing state abbreviation.
+                        2.   Years 2012-2020 have an extra column of state abreviation that can be used to create a index value consisting of Year and State Abbreviation.
+                        3.   Years 2016-2020 have notes at the end of each csv that must be deleted.</div>
+                        </div>
+                )
+            }
+            function RadicalizedComponent(props) {
+                return (
+                    <div className="big-idea" id="small-idea">
+                       <h1>Radicalized Individuals in the United States</h1>
+                       <p> This data set is collected on the individual level. Because we are examining trends on the state level, we will save this Data grouped to the individuals' origin states.
+                            </p>
+                        </div>
+                )
+            }
             function App() {
                 return (
                     <div id = 'container'>
                         <NameComponent name = {project_name} />
+                        <div className="big-container">
+                            <GoalComponent />
+                            <div className="small-container">
+                            <CleaningComponent />
+                            <RadicalizedComponent />
+                            </div>
+                            </div>
                     </div>
                 )
             }
@@ -42,7 +86,6 @@
 
             ReactDOM.render(
                 <App />,
-                //wrapperElement,
                 document.getElementById('app')
             );
 
