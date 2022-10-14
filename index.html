@@ -1,33 +1,56 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>First React App</title>
+        <title>yas</title>
         <script crossorigin src = "https://unpkg.com/react@16/umd/react.development.js"></script>
         <script crossorigin src = "https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src = 'https://unpkg.com/babel-standalone@6/babel.min.js'></script>
+        <link rel="stylesheet" href="index.css">
     </head>
     <body>
         <div id = 'app'></div>
 
-        <script>
-            const project_name = "Voter Turnout Relations";
-    
-            function render_names() {
-                return (
-                    <div>
-                        <h1>Project: {project_name}</h1>
-                    </div>
-                );
+        <script type= 'text/babel'>
+
+            const project_name = 'Voter Turnout Relation';
+            
+            // a component is a function or a class which optionally accepts input and returns a react element
+            function NameComponent (props) {
+                return <div className="box">{props.name}</div>
+            //     return React.createElement(
+            //     'h1',
+            //     null,
+            //     props.name
+            // )    
             }
-            const wrapperElement = React.createElement(
-                'div',
-                { id : 'container' },
-                project_name,
-            )
+            
+            function App() {
+                return (
+                    <div id = 'container'>
+                        <NameComponent name = {project_name} />
+                    </div>
+                )
+            }
+
+            // the above replaces this
+            // const wrapperElement = React.createElement(
+            //     'div',
+            //     { id : 'container' },
+            //     React.createElement(NameComponent, {name: name}),
+            //     React.createElement(HandleComponent, {handle: handle})
+            // )
 
             ReactDOM.render(
-                wrapperElement,
+                <App />,
+                //wrapperElement,
                 document.getElementById('app')
-                );
+            );
+
+            //console.log(wrapperElement);
+            // react checks if the location of memory changes and updates
+
+
+
         </script>
     </body>
 </html>
