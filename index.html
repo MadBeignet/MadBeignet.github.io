@@ -18,9 +18,14 @@
                     </div>
                 );
             }
+            const wrapperElement = React.createElement(
+                'div',
+                { id : 'container' },
+                project_name,
+            )
 
             ReactDOM.render(
-                render_names(),
+                wrapperElement,
                 document.getElementById('app')
                 );
         </script>
