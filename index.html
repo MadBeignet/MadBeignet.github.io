@@ -12,11 +12,14 @@
 
         <script type= 'text/babel'>
 
-            const project_name = 'Voter Turnout Relation';
+            const project_name = 'Political Resistance and Participating in the US';
             
             // a component is a function or a class which optionally accepts input and returns a react element
             function NameComponent (props) {
-                return <div className="box">{props.name}</div>
+                return <div className="box">
+                    {props.name}
+                    <li><a href="https://colab.research.google.com/drive/1XsRQAjYDqUxTdWOBePIABQfPB-02fAZT">Link to Notebook</a></li>
+                    </div>
             //     return React.createElement(
             //     'h1',
             //     null,
@@ -46,9 +49,8 @@
                         <h1 >Voter Turnout 2002</h1>
                         <h2>Cleaning the Data</h2><p>The Election Project collects voter turnout data for the general election that occur every two comes in separate CSVs by year. Here we want to read all by-year files into a single DataFrame. To do so, we must account for the following:</p> 
                         <div>
-                        1.   Years 2000-2010 are in a uniform format, but missing state abbreviation.
-                        2.   Years 2012-2020 have an extra column of state abreviation that can be used to create a index value consisting of Year and State Abbreviation.
-                        3.   Years 2016-2020 have notes at the end of each csv that must be deleted.</div>
+                        <li> Years 2000-2010 are in a uniform format, but missing state abbreviation.</li>
+                        <li>Years 2016-2020 have notes at the end of each csv that must be deleted.</li></div>
                         </div>
                 )
             }
@@ -65,9 +67,9 @@
                 return (
                     <div id = 'container'>
                         <NameComponent name = {project_name} />
-                        <div className="big-container">
+                        <div className="big-container" align="middle">
                             <GoalComponent />
-                            <div className="small-container">
+                            <div  className="small-container">
                             <CleaningComponent />
                             <RadicalizedComponent />
                             </div>
