@@ -32,16 +32,30 @@
     padding: 10px 10px 40px 10px;
 }
 .big-container {
-    position: relative;
+    position: absolute;
+    justify-content: center;
     width:100%;
-    margin-left: 150px;
     display: grid;
-    grid-template-columns: 450px 450px;
-    
-
+    grid-template-columns: 475px;
 }
 .small-container {
     width: 100%;
     display: grid;
-    grid-template-columns: 450px 450px;
+    grid-template-columns: 475px;
+}
+@media (min-width: 950px) {
+    .big-container {
+        grid-template-columns: 475px 475px;
+    }
+    .small-container {
+        grid-template-columns: 475px;
+    }
+}
+@media (min-width: 1425px) {
+    .big-container {
+        grid-template-columns: 475px 950px;
+    }
+    .small-container {
+        grid-template-columns: 475px 475px;
+    }
 }
